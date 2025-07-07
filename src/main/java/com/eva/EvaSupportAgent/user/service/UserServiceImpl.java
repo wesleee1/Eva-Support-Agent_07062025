@@ -40,10 +40,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserVO createUser(UserVO vo) {
+    	try {
         User user = UserMapper.toEntity(vo);
         user.setRegisteredAt(new Date());
         User saved = userRepository.save(user);
         return UserMapper.toVO(saved);
+    	}
+    	catch (Exception e) {
+    		System.out.println(e);
+    	}
+    	return new UserVO();
     }
 
     @Override
@@ -54,6 +60,7 @@ public class UserServiceImpl implements UserService {
             user.setName(vo.getName());
             user.setPhone(vo.getPhone());
             user.setActive(vo.isActive());
+            user.setEmail(vo.getEmail());
             User updated = userRepository.save(user);
             return UserMapper.toVO(updated);
         }

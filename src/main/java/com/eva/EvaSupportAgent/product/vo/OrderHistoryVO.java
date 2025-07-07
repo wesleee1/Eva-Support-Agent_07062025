@@ -3,6 +3,7 @@ package com.eva.EvaSupportAgent.product.vo;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderHistoryVO {
-
+	@Schema(hidden = true)
     private Long id;
     private Long userId;
     private Long productId;
@@ -19,8 +20,7 @@ public class OrderHistoryVO {
     private BigDecimal price;
     private String status;
     private String productName;
-    private String productImage;
-    private Date orderedAt;
+    private Date orderedOn;
 
     // Getters and Setters
 }

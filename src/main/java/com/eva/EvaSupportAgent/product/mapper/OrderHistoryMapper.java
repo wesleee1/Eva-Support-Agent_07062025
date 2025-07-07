@@ -13,6 +13,8 @@ public class OrderHistoryMapper {
         entity.setQuantity(vo.getQuantity());
         entity.setPrice(vo.getPrice());
         entity.setStatus(vo.getStatus());
+        entity.setProductName(vo.getProductName());
+        entity.setOrderedOn(vo.getOrderedOn());
         return entity;
     }
 
@@ -25,6 +27,7 @@ public class OrderHistoryMapper {
         vo.setPrice(entity.getPrice());
         vo.setStatus(entity.getStatus());
         vo.setProductName(entity.getProductName());
+        vo.setOrderedOn(entity.getOrderedOn());
 
         return vo;
     }
