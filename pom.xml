@@ -106,6 +106,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>EvaSupport</finalName>
 	</build>
 
 </project>
