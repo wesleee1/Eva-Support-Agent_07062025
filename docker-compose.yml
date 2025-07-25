@@ -6,25 +6,25 @@ services:
     container_name: postgres_db
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin123
-      POSTGRES_DB: myappdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Pgroot123!
+      POSTGRES_DB: eva_support_agent
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   app:
-    image: jeganth/adpubm_server
+    image: livekitjava
     container_name: Eva-Agent
     depends_on:
       - postgres
     ports:
       - "9090:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/myappdb
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: admin123
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/eva_support_agent
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Pgroot123!
 
 volumes:
   pgdata:
